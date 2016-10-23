@@ -1,6 +1,6 @@
 # weinberg-exp
 
-Instructions:
+## Instructions:
 
 this workflow generates a e+ e- > µ+ µ- events with polarized beams using madgraph and converts them to flat jsonlines files. If you cannot install `yadage` you can use the Docker image as shown below (This needs Docker installed, see documentation here: https://docs.docker.com/)
 
@@ -9,6 +9,14 @@ this workflow generates a e+ e- > µ+ µ- events with polarized beams using madg
     yadage-run -t $TOP workdir rootflow.yml -p nevents=25000 -p seeds=[1,2,3,4] -a $TOP/input.zip \
                -p runcardtempl=run_card.templ -p proccardtempl=sm_proc_card.templ \
                -p sqrtshalf=45 -p polbeam1=0 -p polbeam2=0 
+
+
+## Options
+
+Polarization: `polbeam1` and `polbeam2` control the beam polarizations and can be varies from -100 to 100 each.
+
+`nevents`: number of events to generate per seed
+`seeds`: Array of seeds for random number generation
 
 The number of events generated will be `(nevents) x len(seeds)`, i.e. in the examples above 100k events will be generated along four parallel production chains (each with a different seed)
 
