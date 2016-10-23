@@ -2,7 +2,7 @@
 
 Instructions:
 
-this workflow generates a e+ e- > µ+ µ- events with polarized beams using madgraph and converts them to flat jsonlines files. If you cannot install `yadage` you can use the Docker image as shown below
+this workflow generates a e+ e- > µ+ µ- events with polarized beams using madgraph and converts them to flat jsonlines files. If you cannot install `yadage` you can use the Docker image as shown below (This needs Docker installed, see documentation here: https://docs.docker.com/)
 
     export TOP=https://raw.githubusercontent.com/lukasheinrich/weinberg-exp/master/example_yadage
     eval "$(curl https://raw.githubusercontent.com/diana-hep/yadage/master/yadagedocker.sh)"
