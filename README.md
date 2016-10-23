@@ -10,6 +10,7 @@ this workflow generates a e+ e- > µ+ µ- events with polarized beams using madg
                -p runcardtempl=run_card.templ -p proccardtempl=sm_proc_card.templ \
                -p sqrtshalf=45 -p polbeam1=0 -p polbeam2=0 
 
+With yadage installed (`pip install yadage`) you can skip the `eval` line.
 
 ## Options
 
@@ -20,7 +21,7 @@ Polarization: `polbeam1` and `polbeam2` control the beam polarizations and can b
 
 The number of events generated will be `(nevents) x len(seeds)`, i.e. in the examples above 100k events will be generated along four parallel production chains (each with a different seed)
 
-With yadage installed (`pip install yadage`) you can skip the `eval` line.
+## Example Output
 
 The resulting file will be in `{workdir}/merge/out.jsonl`. Below we show a single event to illustrate the resulting JSON structure
 
