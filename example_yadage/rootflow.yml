@@ -4,6 +4,7 @@ stages:
       scheduler_type: singlestep-stage
       step: {$ref: 'weinbergsteps.yml#/prepare'}
       parameters:
+        Gf: {stages: init, output: Gf, unwrap: true}
         sqrtshalf: {stages: init, output: sqrtshalf, unwrap: true}
         polbeam1: {stages: init, output: polbeam1, unwrap: true}
         polbeam2: {stages: init, output: polbeam2, unwrap: true}
@@ -12,13 +13,15 @@ stages:
         outrun: '{workdir}/run_card.dat'
         proccardtempl: {stages: init, output: proccardtempl, unwrap: true}
         outproc: '{workdir}/proc_card.dat'
+        paramcardtempl: {stages: init, output: paramcardtempl, unwrap: true}
+        outparam: '{workdir}/param_card.dat'
   - name: grid
     dependencies: ['prepare']
     scheduler:
       scheduler_type: singlestep-stage
       step: {$ref: 'steps.yml#/grid'}
       parameters:
-        paramcard: '/analysis/tests/param_card_defaultsm.dat'
+        paramcard: {stages: prepare, output: paramcard, unwrap: true}
         proccard: {stages: prepare, output: proccard, unwrap: true}
         runcard: {stages: prepare, output: runcard, unwrap: true}
         gridpack: '{workdir}/gridpack.tar.gz'

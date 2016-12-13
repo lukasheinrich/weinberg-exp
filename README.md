@@ -8,7 +8,7 @@ this workflow generates a e+ e- > µ+ µ- events with polarized beams using madg
     eval "$(curl https://raw.githubusercontent.com/diana-hep/yadage/master/yadagedocker.sh)"
     yadage-run -t $TOP workdir rootflow.yml -p nevents=25000 -p seeds=[1,2,3,4] -a $TOP/input.zip \
                -p runcardtempl=run_card.templ -p proccardtempl=sm_proc_card.templ \
-               -p sqrtshalf=45 -p polbeam1=0 -p polbeam2=0 
+               -p sqrtshalf=45 -p polbeam1=0 -p polbeam2=0 -p Gf=1.166390e-05
 
 With yadage installed (`pip install yadage`) you can skip the `eval` line.
 

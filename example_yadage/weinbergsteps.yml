@@ -7,6 +7,7 @@ prepare:
       export __POLBEAM2__={polbeam2}
       envsubst < {runcardtempl} > {outrun}
       __PROCESS__="{process}" envsubst < {proccardtempl} > {outproc}
+      __GF__="{Gf}" envsubst < {paramcardtempl} > {outparam}
   environment:
     environment_type: 'docker-encapsulated'
     image: 'lukasheinrich/weinberganalysis'
@@ -15,6 +16,7 @@ prepare:
     outputmap:
       runcard: outrun
       proccard: outproc
+      paramcard: outparam
 jsonlines:
   process:
     process_type: 'interpolated-script-cmd'
